@@ -9,6 +9,16 @@ const validateNumber = (value) => {
   }
 };
 
+const checkGuess = (guess) => {
+  if (guess === randomNumber) {
+    console.log("You guessed correctly.");
+  } else if (guess < randomNumber) {
+    console.log("Too low! Try again.");
+  } else {
+    console.log("Too high! Try again.");
+  }
+};
+
 const play = () => {
   const number = prompt("Enter a number between 1 to 100");
   if (number === null) return;
@@ -18,6 +28,8 @@ const play = () => {
     console.log(validation);
     return play();
   }
+
+  checkGuess(+number);
 };
 
 play();
